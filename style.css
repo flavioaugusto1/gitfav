@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --bg-color: #000000;
+    --primary-color: #FFFFFF;
+
+    --bg-input: #06181C;
+    --bg-button: #065E7C;
+
+    --bg-color-user-even: #06161B;
+    --bg-color-user-odd: #0d2d38;
+
+    --head-table-color: #092D38;
+    --bg-table: #4E5455;
+    --empty-table-color: #4E5455;
+
+    --color-button-remove: #F75A68;
+    --color-scrollbar: #4a808c;
+    --color-scrollbar-hover: #6fbecf;
+
+}
+
+body {
+    height: 100vh;
+    background: var(--bg-color);
+    color: var(--primary-color);
+
+    display: flex;
+    justify-content: center;
+}
+
+body * {
+    font-family: 'Roboto', sans-serif;
+}
+
+#app {
+    max-width: 112rem;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1.6rem;
+
+    margin-top: 6rem;
+}
+
+#app header {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 29rem;
+
+    margin-bottom: 8.7rem;
+}
+
+.search-favorite {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+}
+
+.search-favorite input {
+    font-size: 1.6rem;
+    list-style: 1.6rem;
+    height: 4.8rem;
+    width: 40rem;
+    background: var(--bg-input);
+    color: var(--primary-color);
+    padding: 1.6rem;
+
+    border: none;
+    border-radius: .8rem;
+}
+
+.search-favorite button {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+
+    width: 17rem;
+    height: 4.8rem;
+
+    background: var(--bg-button);
+    border: none;
+    border-radius: .8rem;
+
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.search-favorite button:hover svg path {
+    background: var(--primary-color);
+    color: var(--bg-button);
+    fill: var(--bg-button);
+    transition: .8s;
+
+}
+
+.search-favorite button:hover {
+    background: var(--primary-color);
+    color: var(--bg-button);
+    transition: .8s;
+}
+
+table {
+    width: 100%;
+    max-height: 70rem;
+    background: var(--bg-color-user-even);
+    border-collapse: collapse;
+    position: relative;
+    z-index: 2;
+}
+
+table::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    right: 1px;
+    left: -1px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-scrollbar);
+    border-radius: 1.2rem;
+    z-index: -1;
+
+}
+
+table th,
+table td {
+    width: 18rem;
+}
+
+table thead {
+    background: var(--head-table-color);
+    border-radius: 1.2rem 1.2rem 0 0;
+}
+
+table thead tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+table thead tr th {
+    font-size: 2rem;
+    line-height: 3.2rem;
+    padding: 1.6rem 4rem;
+    text-align: left;
+}
+
+table thead tr th:first-child {
+    width: 50rem;
+}
+
+table thead,
+table tbody {
+    display: block;
+}
+
+tbody {
+    max-height: 60rem;
+    overflow-y: auto;
+    border-radius: 1.2rem;
+}
+
+tbody .empty-favorites {
+    display: flex;
+    justify-content: center;
+
+    margin: 21rem 0 21rem;
+}
+
+tbody .empty-favorites td {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+
+    font-size: 4rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    width: 68rem;
+
+
+    color: var(--empty-table-color);
+}
+
+tbody .empty-favorites td img {
+    width: 13.2rem;
+    height: 12.2rem;
+}
+
+tbody tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+   
+}
+
+table tbody tr:nth-child(even) {
+    background: var(--bg-color-user-odd);
+}
+
+tbody td {
+    padding: 1.6rem 4rem;
+    font-size: 2rem;
+    line-height: 3.2rem;
+}
+
+td.user {
+    width: 50rem;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+td.user img {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50%;
+}
+
+td.user a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+td button {
+    background: none;
+    color: var(--color-button-remove);
+    border: none;
+
+    font-size: 2rem;
+    line-height: 3.2rem;
+    cursor: pointer;
+}
+
+tbody::-webkit-scrollbar {
+    width: .5rem;
+}
+
+tbody::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: 1rem;
+}
+
+tbody::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-hover);
+}
